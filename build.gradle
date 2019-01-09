@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+         mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.6.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.1.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.1.RELEASE'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.1.RELEASE'
+    compile group: 'org.springframework.boot', name:'spring-boot-starter-actuator', version:'2.1.1.RELEASE'
+    compile group: 'javax.xml.bind', name:'jaxb-api', version:'2.3.0'
+    testImplementation 'junit:junit:4.12'
+}
+
+
+
+//task copy(type: Copy, group: "Custom", description:"Copy sources tot he dest directory") {
+//    from "src"
+//    into "dest"
+//}
+//
+//task zip(type: Zip, group: "Archive", description: "Archives sources in a zip file") {
+//    from "src"
+//    setArchiveName "basic-demo-1.0.zip"
+//}
