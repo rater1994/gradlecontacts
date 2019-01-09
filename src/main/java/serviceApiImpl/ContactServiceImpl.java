@@ -62,12 +62,12 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public List <ContactDto> getDetailDTO(Integer userId, Integer contactId) {
-//        List <ContactDto> listContactDto = new ArrayList <>();
-//        contactRepository.findAllByUserIdAndId( userId, contactId ).forEach( contact -> {
-//            listContactDto.add( contact.toContactDto() );
-//        });
-//        return listContactDto;
-        return null;
+        List <ContactDto> listContactDto = new ArrayList <>();
+        contactRepository.findByIdAndAccount( userId, contactId ).forEach( contact -> {
+            listContactDto.add( contact.toContactDto() );
+        });
+        return listContactDto;
+
     }
 
 }

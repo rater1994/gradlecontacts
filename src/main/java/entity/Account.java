@@ -13,7 +13,7 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "id_username")
     private Integer id;
 
     @Column(name = "Username")
@@ -31,7 +31,7 @@ public class Account {
     @Column(name = "Role")
     private String role;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = )
+    @OneToMany(cascade = CascadeType.ALL)
     private List <Contact> contacts;
 
 

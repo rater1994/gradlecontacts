@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Integer> {
-//    List<Contact>  findByUs(Integer userId, Integer contactId);
+    List<Contact>  findByIdAndAccount(Integer userId, Integer contactId);
 
 }
