@@ -2,7 +2,10 @@ package controllerImpl;
 
 
 import controller.ContactsController;
+import dto.AccountDto;
 import dto.ContactDto;
+import entity.Account;
+import entity.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -47,9 +50,13 @@ public class ContactControllerImpl implements ContactsController {
     }
 
     @Override
-    public List <ContactDto> getDetail(Integer userId, Integer contactId) {
-        return contactService.getDetailDTO( userId, contactId );
+    public List <ContactDto> getDetail(@PathVariable Integer accountId) {
+        return contactService.getDetailDTO(accountId );
     }
 
+    @Override
+    public List <ContactDto> getAllContacts(@PathVariable Integer id) {
+        return contactService.getAllContactsDTO( id );
+    }
 
 }

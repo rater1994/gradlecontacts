@@ -31,7 +31,7 @@ public class Account {
     @Column(name = "Role")
     private String role;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List <Contact> contacts;
 
 
@@ -112,6 +112,10 @@ public class Account {
         accountDto.setEmail( this.email );
         accountDto.setDeleteFlag( this.deleteFlag );
         accountDto.setRole( this.role );
+
+        accountDto.setContactDtoList( new ArrayList <>(  ) );
+        this.contacts.forEach( contact -> accountDto.getContactDtoList().add( contact.toContactDto() ) );
+
         return accountDto;
     }
 

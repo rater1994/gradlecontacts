@@ -1,10 +1,12 @@
 package dto;
 
 public class ContactDto {
+//    public Integer accountId;
     private Integer id;
     private String firstNameDto;
     private String lastNameDto;
     private String numberPhoneDto;
+    private int accountId;
 
     public Integer getId() {
         return id;
@@ -39,4 +41,11 @@ public class ContactDto {
     }
 
 
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
 }

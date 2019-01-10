@@ -1,5 +1,8 @@
 package dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AccountDto {
     private Integer id;
     private String username;
@@ -7,6 +10,18 @@ public class AccountDto {
     private String email;
     private String deleteFlag;
     private String role;
+
+
+    private List <ContactDto> contactDtoList = new ArrayList <>();
+
+
+    public List <ContactDto> getContactDtoList() {
+        return contactDtoList;
+    }
+
+    public void setContactDtoList(List <ContactDto> contactDtoList) {
+        this.contactDtoList = contactDtoList;
+    }
 
     public String getDeleteFlag() {
         return deleteFlag;

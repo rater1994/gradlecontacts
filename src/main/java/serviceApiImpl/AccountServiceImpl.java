@@ -2,12 +2,15 @@ package serviceApiImpl;
 
 
 import dto.AccountDto;
+import dto.ContactDto;
 import entity.Account;
+import entity.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import repository.AccountRepository;
+import repository.ContactRepository;
 import serviceApi.AccountService;
 
 import java.util.ArrayList;
@@ -22,7 +25,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountRepository accountRepository;
 
     @Autowired
-    private AccountService accountService;
+    private ContactRepository contactRepository;
 
     String admin = "admin";
     String user = "user";
@@ -74,12 +77,10 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public AccountDto findAccountDTO(Integer id) {
-        Optional <Account> byId = accountRepository.findById( id );
+        Optional <Account> accountOptional = accountRepository.findById( id );
+        Account account = accountOptional.get();
 
-        if (byId.isPresent()) {
-            return accountRepository.findById( id ).get().toAccountDto();
-        }
-        return null;
+        return account.toAccountDto();
     }
 
     @Override

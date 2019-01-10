@@ -1,6 +1,8 @@
 package serviceApi;
 
+import dto.AccountDto;
 import dto.ContactDto;
+import entity.Account;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +20,8 @@ public interface ContactService {
 
    ContactDto editContactDTO(@RequestBody ContactDto contactDto, @PathVariable Integer id);
 
-   List<ContactDto> getDetailDTO(@PathVariable Integer userId, @PathVariable Integer contactId);
+   List<ContactDto> getDetailDTO(@PathVariable Integer accountId);
 
+   List<ContactDto> getAllContactsDTO(@PathVariable Integer id);
 
 }
