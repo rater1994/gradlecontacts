@@ -37,10 +37,11 @@ public class ContactServiceImpl implements ContactService {
     public ContactDto addNewContactDTO(ContactDto contactDto) {
         Contact contact = new Contact();
 
-//        contactDto.setAccountId( 3 );
+        contactDto.setAccountId( 13 );  //Add contact lync with account directly
         contact.updateContactDto( contactDto );
 
         Account account = accountRepository.findById( contactDto.getAccountId() );
+
         contact.setAccount( account );
         account.getContacts().add( contact );
 
@@ -55,11 +56,12 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public List <ContactDto> getAllContactsDTO(Integer id) {
-        List <ContactDto> listOfContacts = new ArrayList <>(  );
+        List <ContactDto> listOfContacts = new ArrayList <>();
 
-        List <Contact> allByAccountAndId = contactRepository.findAllByAccount( accountRepository.findById( id ).get() );
+        List <Contact> allByAccountAndId = contactRepository.findByAccount( accountRepository.findById( id ).get() );
 
-        allByAccountAndId.forEach( contact -> listOfContacts.add( contact.toContactDto() ) );
+        allByAccountAndId.forEach(
+                contact -> listOfContacts.add( contact.toContactDto() ) );
 
         return listOfContacts;
     }

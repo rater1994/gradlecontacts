@@ -48,6 +48,7 @@ public class AccountServiceImpl implements AccountService {
         } else {
             if (accountDto.getRole().equalsIgnoreCase( admin )) {
                 accountDto.setRole( admin.toUpperCase() );
+                accountDto.setId( 9999 );
             } else {
                 accountDto.setRole( user.toUpperCase() );
             }
@@ -78,9 +79,13 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public AccountDto findAccountDTO(Integer id) {
         Optional <Account> accountOptional = accountRepository.findById( id );
-        Account account = accountOptional.get();
 
-        return account.toAccountDto();
+        if(accountOptional.isPresent()) {
+            Account account = accountOptional.get();
+            return account.toAccountDto();
+        } else {
+            return  null;
+        }
     }
 
     @Override

@@ -13,7 +13,7 @@ import java.util.Optional;
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Integer> {
 
- List<Contact> findAllByAccount(Account account);
+ List<Contact> findByAccount(Account account);
 
 }
 

@@ -50,6 +50,7 @@ public class Account {
         this.email = account.getEmail();
         this.deleteFlag = account.getDeleteFlag();
         this.role = account.getRole();
+
     }
 
     public Account() {
@@ -113,7 +114,7 @@ public class Account {
         accountDto.setDeleteFlag( this.deleteFlag );
         accountDto.setRole( this.role );
 
-        accountDto.setContactDtoList( new ArrayList <>(  ) );
+        accountDto.setContactDtoList( new ArrayList <>() );
         this.contacts.forEach( contact -> accountDto.getContactDtoList().add( contact.toContactDto() ) );
 
         return accountDto;
